@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Headr from './Headr';
 
 const Browse = () => {
   return (
-    <div>Browse</div>
+    <div>
+      <Headr></Headr>
+      
+    </div>
+     
   )
 }
 
