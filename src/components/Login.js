@@ -3,13 +3,14 @@ import Headr from './Headr';
 import { Valid} from '../utls/Valid';
 import {auth} from "../utls/firebase";
 import { createUserWithEmailAndPassword ,signInWithEmailAndPassword,updateProfile} from 'firebase/auth';
- import { useNavigate } from 'react-router-dom';
+ 
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utls/userSlice';
+import { User_Avatar } from '../utls/constant';
  
  const Login = () => {
   const dispatch = useDispatch();
-  const navigate= useNavigate();
+ 
   const [issignform,setIssignform] = useState(true);
   const signupform = () => {
     setIssignform(!issignform);
@@ -35,11 +36,11 @@ import { addUser } from '../utls/userSlice';
         const user = userCredential.user;
         console.log(user);
         updateProfile(user, {
-          displayName: name.current.value , photoURL: "https://avatars.githubusercontent.com/u/12824231?v=4"
+          displayName: name.current.value , photoURL:User_Avatar
         }).then(() => {
           const {uid,email,displayname,photoURL} = auth.currentUser;
           dispatch(addUser({uid:uid,email:email,displayname:displayname,photoURL:photoURL}));
-          navigate("/browse");
+          
       
         }).catch((error) => {
            setErrormessage(error.message);
@@ -62,8 +63,7 @@ import { addUser } from '../utls/userSlice';
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-     navigate("/Browse");
+   
     // ...
   })
   .catch((error) => {
