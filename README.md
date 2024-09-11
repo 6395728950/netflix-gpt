@@ -29,6 +29,14 @@ Bug -fix : sign up user displayname and profile picture update
 - update store with trailervideo data
 - embeded the youtube video and make it autoplay and mute 
 - tailwind classes to make container look  awesome
+- Build secondary component
+- create hook for toprated ,upcoming and nowplaying,popular movies
+-create movielist
+-create moviecard
+-use tmdb api for all  separted hooks
+
+
+
 
 
 
